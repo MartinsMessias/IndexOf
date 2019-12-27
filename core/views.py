@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from core.models import Dork
 
-# Create your views here.
+
 def index(request):
-    return render(request, 'index.html')
+    dorks = Dork.objects.all()
+    return render(request, 'index.html', {'dorks':dorks})

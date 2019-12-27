@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block conteudo %}
+
+    <h1 class="cover-heading text-left">Deep Search Google</h1>
+    <section class="search-sec">
+        <div class="container">
+            <form action="#" method="post" novalidate="novalidate">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            {% if dorks %}
+                                <table class="table" border="2px">
+                                    {% for dork in dorks %}
+                                        <td title="{{ dork.explanation }}">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="{{ dork.tag }}" title="{{ dork.dork }}" oninput="eleText(this)">
+                                                <label class="form-check-label" for="{{ dork.tag }}">{{ dork.tag }}</label>
+                                            </div>
+                                        </td>
+                                    {% endfor %}
+                                </table>
+                            {% else %}
+                                <div class="col-md">
+                                    <h5 class="text-danger">Dorks not found!</h5>
+                                </div>
+                            {% endif %}
+                            <div class="col-lg col-md col-sm p-0">
+                                <code id="dorkfield"></code><input type="text" class="form-control search-slt" placeholder="query">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                                <button type="button" class="btn btn-dark wrn-btn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+    function eleText(element){
+        var dorkfield = ['https://google.com//query?=',];
+
+        if (element.checked == true) {
+            dorkfield.push(element.title);
+            document.getElementById("dorkfield").innerText = dorkfield;
+        } else {
+            dorkfield.pop();
+        }
+    }
+    </script>
+{% endblock%}
