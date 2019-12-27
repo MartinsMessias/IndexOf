@@ -5,11 +5,11 @@ try:
     import whitenoise
 except:
     pass
-from django.core.management.utils import get_random_secret_key
 
+from django.core.management.utils import get_random_secret_key
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-SECRET_KEY = get_random_secret_key()
+SECRET_KEY = 'y9e8ykgf-$0##bx)e)ov+y%h5@ye63mbccv)a)=svlianj1^wq'
 
 DEBUG = True
 
