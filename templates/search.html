@@ -6,15 +6,16 @@
     <section class="search-sec">
         <div class="container">
             <code id="dorkfield">You have selected the dork <b>{{ dork.tag }}</b></code>
-            <form action="#" method="post" novalidate="novalidate">
+            <form method="get" action="{% url 'search' dork.dork %}">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-lg col-md col-sm p-0">
-                                <input type="text" class="form-control search-slt" placeholder="query">
+                                <input type="text" name="query" class="form-control search-slt" placeholder="query">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 p-0">
-                                <button type="button" class="btn btn-dark wrn-btn">Search</button>
+                                <button type="submit" class="btn btn-dark wrn-btn">Search</button>
                             </div>
                         </div>
                     </div>

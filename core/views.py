@@ -12,8 +12,10 @@ def get_query(request, selected_dork):
     return render(request, 'search.html', {'dork': dork})
 
 
-def search(request, id, query):
+def search(request, dork):
     google_url = 'https://www.google.com/search?q='
-    dork = Dork.objects.get(id=id)
-    new_url = google_url+dork.dork+str(query)
-    return redirect(new_url)
+    if request.method ==  'GET':
+        query = request.GET.get('query')
+        new_url = str(google_url)+str(dork)+str(query)
+        return redirect(new_url)
+    redirect(index())
