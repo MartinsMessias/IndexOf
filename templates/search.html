@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+    <h1 class="cover-heading text-left">Deep Search Google</h1>
+    <section class="search-sec">
+        <div class="container">
+            <code id="dorkfield">You have selected the dork <b>{{ dork.tag }}</b></code>
+            <form action="#" method="post" novalidate="novalidate">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-lg col-md col-sm p-0">
+                                <input type="text" class="form-control search-slt" placeholder="query">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                                <button type="button" class="btn btn-dark wrn-btn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+  {% endblock%}
+
+{#    <script>#}
+{#    const DORKFIELD = ['https://www.google.com/search?q='];#}
+{##}
+{#    function eleText(element){#}
+{#        if (element.active == true) {#}
+{#            DORKFIELD.push(element.title);#}
+{#            document.getElementById("dorkfield").innerText = DORKFIELD.toString();#}
+{##}
+{#        } else if (element.active == false){#}
+{#            DORKFIELD.splice(DORKFIELD.indexOf(element.title),1);#}
+{#            document.getElementById("dorkfield").innerText = DORKFIELD.toString();#}
+{#        }#}
+{#    }#}
+{#    </script>#}
