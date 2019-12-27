@@ -1,13 +1,19 @@
 import os
+try:
+    import django_heroku
+    import dj_database_url
+    import whitenoise
+except:
+    pass
 from django.core.management.utils import get_random_secret_key
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = get_random_secret_key()
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -97,3 +103,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
+try:
+    # Activate Django-Heroku.
+    django_heroku.settings(locals())
+except:
+    pass
