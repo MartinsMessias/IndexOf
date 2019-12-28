@@ -12,7 +12,7 @@
                                 <div class="row">
                                     {% for dork in dorks %}
                                         <div class="col-md" title="{{ dork.explanation }}">
-                                            <div class="form-check">
+                                            <div style="padding: 5px;">
                                                 {% if dork.dork == 'music:' %}
                                                     <a style="text-decoration: none;" href="{% url 'search-music' %}">
                                                 {% else %}
