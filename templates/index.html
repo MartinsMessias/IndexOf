@@ -8,18 +8,20 @@
                 <div class="col-md-12">
                     <div class="row">
                         {% if dorks %}
-                            <table class="table table responsive" border="1px">
-                                {% for dork in dorks %}
-                                    <td title="{{ dork.explanation }}">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    {% for dork in dorks %}
+                                    <div class="col-md" title="{{ dork.explanation }}">
                                         <div class="form-check">
                                             <a style="text-decoration: none;" href="{% url 'get_query' dork.id %}">
                                                 <input type="button" class="btn-sm btn-primary" id="{{ dork.tag }}" value="{{ dork.tag }}">
                                             </a>
                                             <label class="form-check-label" for="{{ dork.tag }}"></label>
                                         </div>
-                                    </td>
-                                {% endfor %}
-                            </table>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         {% else %}
                             <div class="col-md">
                                 <h5 class="text-danger">Dorks not found!</h5>
