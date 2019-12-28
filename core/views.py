@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 from core.models import Dork
 
+google_url = 'https://www.google.com/search?q='
 
 def index(request):
     dorks = Dork.objects.all()
@@ -13,7 +14,7 @@ def get_query(request, selected_dork):
 
 
 def search(request, dork):
-    google_url = 'https://www.google.com/search?q='
+
     if request.method ==  'GET':
         query = request.GET.get('query')
         new_url = str(google_url)+str(dork)+str(query)
@@ -21,7 +22,6 @@ def search(request, dork):
     redirect(index)
 
 def search_music(request):
-    google_url = 'https://www.google.com/search?q='
     if request.method ==  'POST':
         singer = request.POST.get('query-singer')
         music = request.POST.get('query-music')

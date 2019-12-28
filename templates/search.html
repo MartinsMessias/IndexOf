@@ -9,10 +9,8 @@
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-12">
+                        <p class="text-lowercase" disabled style="font-size: 100%; text-align: justify">{{ dork.dork }}</p>
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 p-0">
-                                <button type="submit" class="btn btn-light wrn-btn text-lowercase" disabled>{{ dork.dork }}</button>
-                            </div>
                             <div class="col-lg col-md col-sm p-0">
                                 <input type="text" name="query" class="form-control search-slt" placeholder="Enter a condition" autocomplete="off">
                             </div>
