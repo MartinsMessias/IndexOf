@@ -2,7 +2,7 @@
 
 {% block conteudo %}
     <section class="search-sec">
-        <h5 class="cover-heading text-center" id="dorkfield">You have selected the query <b>{{ dork.tag }}</b></h5>
+        <h5 class="cover-heading text-center" id="dorkfield">You have selected the query <b>music</b></h5>
         <p style="text-align: justify">{{ dork.explanation }}</p>
         <form method="post" action="{% url 'search-music' %}" target="_blank">
             {% csrf_token %}
