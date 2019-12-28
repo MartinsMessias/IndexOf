@@ -2,17 +2,20 @@
 
 {% block conteudo %}
 
-    <h1 class="cover-heading text-left">Deep Search Google</h1>
     <section class="search-sec">
         <div class="container">
-            <code id="dorkfield">You have selected the dork <b>{{ dork.tag }}</b></code>
-            <form method="get" action="{% url 'search' dork.dork %}">
+            <h5 class="cover-heading text-center" id="dorkfield">You have selected the query <b>{{ dork.tag }}</b></h5>
+            <p style="text-align: justify">{{ dork.explanation }}</p>
+            <form method="get" action="{% url 'search' dork.dork %}" target="_blank">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                                <button type="submit" class="btn btn-light wrn-btn text-lowercase" disabled>{{ dork.dork }}</button>
+                            </div>
                             <div class="col-lg col-md col-sm p-0">
-                                <input type="text" name="query" class="form-control search-slt" placeholder="query">
+                                <input type="text" name="query" class="form-control search-slt" placeholder="Enter a condition" autocomplete="off">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 p-0">
                                 <button type="submit" class="btn btn-dark wrn-btn">Search</button>
@@ -23,4 +26,4 @@
             </form>
         </div>
     </section>
-  {% endblock%}
+{% endblock%}
