@@ -11,7 +11,7 @@
                             <div class="button-group-area" align="center">
                                 <div class="row">
                                     {% for dork in dorks %}
-                                        <div class="col-md" title="{{ dork.explanation }}">
+                                        <div class="col-md" data-title="{{ dork.explanation }}">
                                             <div style="padding: 5px; width: 100%;">
                                                 {% if dork.dork == 'music:' %}
                                                     <a style="text-decoration: none;" href="{% url 'search-music' %}">
