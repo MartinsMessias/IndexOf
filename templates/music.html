@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <section class="search-sec">
+        <h5 class="cover-heading text-center" id="dorkfield">You have selected the query <b>{{ dork.tag }}</b></h5>
+        <p style="text-align: justify">{{ dork.explanation }}</p>
+        <form method="post" action="{% url 'search-music' %}" target="_blank">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                            <button type="submit" class="btn btn-light wrn-btn text-lowercase" disabled>Singer</button>
+                        </div>
+                        <div class="col-lg col-md col-sm p-0">
+                            <input type="text" name="query-singer" class="form-control search-slt" placeholder="Ex.: Metallica" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                            <button type="submit" class="btn btn-light wrn-btn text-lowercase" disabled>Music</button>
+                        </div>
+                        <div class="col-lg col-md col-sm p-0">
+                            <input type="text" name="query-music" class="form-control search-slt" placeholder="Ex.: Sad but True" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 p-0">
+                            <button type="submit" class="btn btn-dark wrn-btn">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock%}

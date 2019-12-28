@@ -11,14 +11,18 @@
                             <div class="button-group-area" align="center">
                                 <div class="row">
                                     {% for dork in dorks %}
-                                    <div class="col-md" title="{{ dork.explanation }}">
-                                        <div class="form-check">
-                                            <a style="text-decoration: none;" href="{% url 'get_query' dork.id %}">
-                                                <input type="button" class="btn-sm btn-primary" id="{{ dork.tag }}" value="{{ dork.tag }}">
-                                            </a>
-                                            <label class="form-check-label" for="{{ dork.tag }}"></label>
+                                        <div class="col-md" title="{{ dork.explanation }}">
+                                            <div class="form-check">
+                                                {% if dork.dork == 'music:' %}
+                                                    <a style="text-decoration: none;" href="{% url 'search-music' %}">
+                                                {% else %}
+                                                    <a style="text-decoration: none;" href="{% url 'get_query' dork.id %}">
+                                                {% endif %}
+                                                    <input type="button" class="btn-sm btn-primary" id="{{ dork.tag }}" value="{{ dork.tag }}">
+                                                </a>
+                                                <label class="form-check-label" for="{{ dork.tag }}"></label>
+                                            </div>
                                         </div>
-                                    </div>
                                     {% endfor %}
                                 </div>
                             </div>

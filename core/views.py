@@ -18,4 +18,14 @@ def search(request, dork):
         query = request.GET.get('query')
         new_url = str(google_url)+str(dork)+str(query)
         return redirect(new_url)
-    redirect(index())
+    redirect(index)
+
+def search_music(request):
+    google_url = 'https://www.google.com/search?q='
+    if request.method ==  'POST':
+        singer = request.POST.get('query-singer')
+        music = request.POST.get('query-music')
+        query = str(singer) + ' intitle:”index.of” “parent directory” “size” “last modified” “description” '+str(music)+' (mp4|mp3|avi|flac|aac|ape|ogg) -inurl:(jsp|php|html|aspx|htm|cf|shtml|lyrics-realm|mp3-collection) -site:.info'
+        new_url = str(google_url)+str(query)
+        return redirect(new_url)
+    return render(request, 'music.html')
