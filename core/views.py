@@ -17,7 +17,10 @@ def search(request, dork):
 
     if request.method ==  'GET':
         query = request.GET.get('query')
-        new_url = str(google_url)+str(dork)+str(query)
+        if query:
+            new_url = str(google_url)+str(dork)+str(query)
+        else:
+            new_url = str(google_url) + str(dork)
         return redirect(new_url)
     redirect(index)
 
